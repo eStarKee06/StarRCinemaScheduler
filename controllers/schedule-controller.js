@@ -4,9 +4,9 @@ const reqBodyValidation = (body) => {
     let dateRegExp = /[0-9]{4}-(0[1-9]|1[0-2])-([0-2][0-9]|3[0-1]) ([0-1][0-9]|2[0-4]):[0-5][0-9]:[0-5][0-9]/g;
     if(Object.keys(body).length !== 3) 
         throw {message: "request body length is not 3"};
-    if(!("start_date" in body) || !("end_date" in body) || !("showing_id" in body)) 
+    if(!("start_date" in body) || !("end_date" in body) || !("tmdb_id" in body)) 
         throw {message: "the required keys are not all in the body"};
-    if(body.start_date.match(dateRegExp) == null || body.end_date.match(dateRegExp) == null|| isNaN(parseInt(body.showing_id))) 
+    if(body.start_date.match(dateRegExp) == null || body.end_date.match(dateRegExp) == null|| isNaN(parseInt(body.tmdb_id))) 
         throw {message: "key values not formatted correctly"};
 }
 
@@ -23,7 +23,7 @@ const reqBodyValidationPut = (body) => {
         if((objectKeys[i] == "start_date" || objectKeys[i] == "end_date") && body[objectKeys[i]].match(dateRegExp) == null) 
             throw {message: "date format is incorrect"};
 
-        if(objectKeys[i] == "showing_id" &&  isNaN(parseInt(body.showing_id)))
+        if(objectKeys[i] == "tmdb_id" &&  isNaN(parseInt(body.tmdb_id)))
             throw {message: "foreign id is not an int"};
     }
 }

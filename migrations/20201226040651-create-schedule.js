@@ -16,15 +16,9 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      showing_id: { 
+      tmdb_id: { // this is the id to tmdb api
         type: Sequelize.BIGINT,
-        allowNull: false,
-        references: {
-            model: 'Showings',
-            key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        allowNull: false
       },
       createdAt: {
         allowNull: false,

@@ -11,29 +11,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.showingAssociation = this.belongsTo(models.Showing);
     }
   };
   Schedule.init({
     start_date: { 
       type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: null
+      allowNull: false
     },
     end_date: { 
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: null
+      defaultValue:null
     },
-    showing_id: { 
+    tmdb_id: { 
       type: DataTypes.BIGINT,
-      allowNull: false,
-      references: {
-          model: 'Showings',
-          key: 'id'
-      },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE'
+      allowNull: false
     }
   }, {
     sequelize,
