@@ -21,6 +21,10 @@ module.exports = (sequelize, DataTypes) => {
     tmdb_id: { // this is the id to tmdb api
       type: DataTypes.BIGINT,
       allowNull: false
+    },
+    s3_key: {
+      type: DataTypes.STRING,
+      allowNull:false
     }
   }, {
     sequelize,

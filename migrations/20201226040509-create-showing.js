@@ -12,6 +12,10 @@ module.exports = {
         type: Sequelize.BIGINT,
         allowNull: false
       },
+      s3_key: {
+        type: Sequelize.STRING,
+        allowNull:false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
